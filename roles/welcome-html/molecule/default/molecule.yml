@@ -1,0 +1,45 @@
+---
+driver:
+  name: docker
+platforms:
+  - name: centos7
+    image: timgrt/centos7-ansible:latest
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    command: "/usr/sbin/init"
+    pre_build_image: true
+    exposed_ports:
+      - 80/tcp
+    published_ports:
+      - 8080:80/tcp
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      interpreter_python: auto_silent
+      callback_whitelist: profile_tasks, timer, yaml
+      stdout_callback: yaml
+    ssh_connection:
+      pipelining: false
+  inventory:
+    host_vars:
+      centos7:
+        ansible_user: ansible
+      ubuntu2004:
+        ansible_user: ansible
+scenario:
+  create_sequence:
+    - create
+  converge_sequence:
+    - create
+    - converge
+  destroy_sequence:
+    - destroy
+  test_sequence:
+    - destroy
+    - create
+    - syntax
+    - converge
+    - idempotence
+    - destroy

@@ -1,0 +1,6 @@
+---
+
+- name: Deploy Automation demo
+  hosts: web
+  roles:
+    - welcome-html
