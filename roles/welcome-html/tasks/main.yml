@@ -19,3 +19,7 @@
     name: httpd
     state: started
   become: true
+
+- name: Output Info for Webserver access
+  debug:
+    msg: "Open your browser and input this address >> http://{{ ansible_host }}"
