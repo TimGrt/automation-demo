@@ -1,0 +1,31 @@
+---
+
+- name: Install podman
+  ansible.builtin.yum:
+    name: podman
+    state: present
+  become: true
+
+- name: Pull container image
+  containers.podman.podman_image:
+    name: "{{ container_image }}"
+    state: present
+
+- name: Start container and publish
+  containers.podman.podman_container:
+    name: "{{ container_image | basename }}"
+    image: "{{ container_image }}"
+    ports:
+      - "{{ container_port }}:80/tcp"
+
+# - name: Get infos on container
+#   containers.podman.podman_image:
+#     name: ansible-best-practices
+#   register: container_info
+
+# - name: Output container info
+#   ansible.builtin.debug:
+#     msg: "Go to >> http://{{ ansible_host }}:{{ container_port }} << to view your deployment."
+#   when:
+#     - container_info.exists
+#     - container_info.container.State.Status == 'running'

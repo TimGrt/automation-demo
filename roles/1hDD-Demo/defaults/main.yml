@@ -1,0 +1,4 @@
+---
+
+container_image: ghcr.io/timgrt/ansible-best-practices
+container_port: 8080

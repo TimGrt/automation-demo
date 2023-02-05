@@ -1,0 +1,6 @@
+---
+
+- name: Secure supply-chain demo for 1hDD
+  hosts: web
+  roles:
+    - 1hDD-Demo
