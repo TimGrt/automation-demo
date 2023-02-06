@@ -18,14 +18,12 @@
     ports:
       - "{{ container_port }}:80/tcp"
 
-# - name: Get infos on container
-#   containers.podman.podman_image:
-#     name: ansible-best-practices
-#   register: container_info
+- name: Get infos on container
+  containers.podman.podman_container_info:
+    name: "{{ container_image | basename }}"
+  register: container_info
 
-# - name: Output container info
-#   ansible.builtin.debug:
-#     msg: "Go to >> http://{{ ansible_host }}:{{ container_port }} << to view your deployment."
-#   when:
-#     - container_info.exists
-#     - container_info.container.State.Status == 'running'
+- name: Output container info
+  ansible.builtin.debug:
+    msg: "Go to >> http://{{ ansible_host }}:{{ container_port }} << to view your deployment."
+  when: container_info['containers'][0]['State']['Running']

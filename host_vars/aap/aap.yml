@@ -1,0 +1,5 @@
+---
+
+controller_host: https://student1.rhff1d.example.opentlc.com/
+controller_username: "{{ vault_controller_username }}"
+controller_password: "{{ vault_controller_password }}"
