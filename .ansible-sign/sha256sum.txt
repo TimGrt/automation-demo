@@ -1,0 +1,4 @@
+5a2bdd26121e9414ee3866f23196120dd918eb6780649e2636f465251d6f0c8e  1hDD-Demo.yml
+7f2637c05117ee2d422bd1dbc75dc8bbbf4bdc7bcd9b7589eea70040fb8d6a9b  MANIFEST.in
+3a3b2694a1a1926d06b0f9d533a6c7d255e82d4ac23ff805247dbb4ea62d0bea  roles/1hDD-Demo/defaults/main.yml
+b22088db5b324657ffc2160e55c48acf293119166337e1f2eaf2602fd7027de8  roles/1hDD-Demo/tasks/main.yml
