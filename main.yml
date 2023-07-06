@@ -5,6 +5,6 @@
   pre_tasks:
     - name: Output Job ID
       ansible.builtin.debug:
-        msg: "{{ controller_job_id }}"
+        msg: "{{ tower_project_revision }}"
   roles:
     - welcome-html
