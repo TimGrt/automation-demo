@@ -2,5 +2,9 @@
 
 - name: Deploy Automation demo
   hosts: web
+  pre_tasks:
+    - name: Output Job ID
+      ansible.builtin.debug:
+        msg: "{{ tower_job_id }}"
   roles:
     - welcome-html
