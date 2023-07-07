@@ -1,0 +1,8 @@
+---
+
+- name: Retrieve stats
+  hosts: web
+  tasks:
+    - name: Output stat from other workflow template
+      ansible.builtin.debug:
+        msg: "{{ the_answer }}"
