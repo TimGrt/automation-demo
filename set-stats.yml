@@ -6,5 +6,5 @@
     - name: Setting stat to provide for subsequent workflow step
       ansible.builtin.set_stats:
         data:
-          my_variable: "It works."
+          my_variable: "It works on {{ inventory_hostname }}."
         aggregate: false
