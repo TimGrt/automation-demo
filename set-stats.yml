@@ -7,3 +7,4 @@
       ansible.builtin.set_stats:
         data:
           my_variable: "It works."
+        aggregate: false
