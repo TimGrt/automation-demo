@@ -6,4 +6,4 @@
     - name: Setting stat to provide for subsequent workflow step
       ansible.builtin.set_stats:
         data:
-          the_answer: 42
+          the_answer: "It works."
