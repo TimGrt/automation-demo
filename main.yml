@@ -6,5 +6,8 @@
     - name: Output Job ID
       ansible.builtin.debug:
         msg: "{{ tower_project_revision }}"
+    - name: Output stat from other workflow template
+      ansible.builtin.debug:
+        msg: "{{ the_answer }}"
   roles:
     - welcome-html
