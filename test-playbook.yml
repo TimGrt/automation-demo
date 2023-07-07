@@ -4,6 +4,6 @@
   hosts: web
   tasks:
     - name: Setting stat to provide for subsequent workflow step
-      ansible.builtin.set_stat:
+      ansible.builtin.set_stats:
         data:
           the_answer: 42
