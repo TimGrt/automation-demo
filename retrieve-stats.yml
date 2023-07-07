@@ -3,6 +3,8 @@
 - name: Retrieve stats
   hosts: web
   tasks:
+    - debug: var=hostvars
     - name: Output stat from other workflow template
       ansible.builtin.debug:
         msg: "{{ the_answer }}"
+
