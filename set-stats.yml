@@ -7,3 +7,4 @@
       ansible.builtin.set_stats:
         data:
           the_answer: "It works."
+        per_host: true
