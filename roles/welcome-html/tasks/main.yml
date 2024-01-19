@@ -1,25 +1,26 @@
 ---
 
 - name: Install webserver
-  yum:
+  ansible.builtin.yum:
     name: httpd
     state: present
   become: true
 
 - name: Copy index.html template
-  template:
+  ansible.builtin.template:
     src: welcome.html
     dest: /var/www/html/index.html
     owner: apache
     group: apache
+    mode: "0644"
   become: true
 
 - name: Start webserver
-  service:
+  ansible.builtin.service:
     name: httpd
     state: started
   become: true
 
 - name: Output Info for Webserver access
-  debug:
+  ansible.builtin.debug:
     msg: "Open your browser and input this address >> http://{{ ansible_host }}"

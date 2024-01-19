@@ -1,0 +1,10 @@
+---
+# The 'attendee' name (value) is shown in the webserver, overwrite it with '-e attendee=Name' (or with survey)
+attendee: Teilnehmer
+# Config files are created with the attendee name in it, using the crc32 filter ensures
+# no special characters are used and everything is lowercase
+attendee_normalized: "{{ attendee | community.general.crc32 }}"
+
+build_context_folder: "{{ playbook_dir }}/context"
+
+port_range_list: "{{ range(8080, 8100) | list }}"

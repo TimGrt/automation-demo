@@ -1,0 +1,9 @@
+---
+
+- name: Test playbook
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+  roles:
+    - welcome-html-container
