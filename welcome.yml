@@ -1,8 +1,7 @@
 ---
 
 - name: Test playbook
-  hosts: localhost
-  connection: local
+  hosts: all
   gather_facts: false
   tasks:
   roles:
