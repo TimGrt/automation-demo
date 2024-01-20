@@ -1,0 +1,7 @@
+---
+
+- name: Container_info
+  ansible.builtin.debug:
+    msg: "Open your browser and input this address >> http://{{ ansible_host }}:{{ attendee_container_port }}"
+  vars:
+    attendee_container_port: "{{ attendee_container_info['containers'][0]['NetworkSettings']['Ports']['80/tcp'][0]['HostPort'] | default(available_port) }}"

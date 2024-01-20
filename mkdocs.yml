@@ -5,12 +5,11 @@ copyright: Copyright &copy; Computacenter 2024
 edit_uri: ""
 extra:
   social:
-    - icon: fontawesome/brands/gitlab
-      link: https://gitlab.ccloud.ninja/tgruetzmacher/documentation-as-code
-      name: Project in CCloud Gitlab
     - icon: fontawesome/brands/docker
-      link: https://gitlab.ccloud.ninja/tgruetzmacher/documentation-as-code
-      name: Docker Container in Github Container Repository
+      link: https://hub.docker.com/repository/docker/timgrt/qep-ee/general
+      name: Execution Environment Container im Docker Hub
+extra_css:
+  - assets/stylesheets/tables.css
 extra_javascript:
   - assets/javascripts/extra/refresh-on-toggle-dark-light.js
 markdown_extensions:
@@ -52,7 +51,6 @@ plugins:
   - privacy
 theme:
   name: material
-  #custom_dir: docs/assets/overrides
   icon:
     repo: fontawesome/brands/github
     admonition:
@@ -63,9 +61,7 @@ theme:
   features:
     - content.code.annotate
     - content.code.copy
-    #- navigation.indexes
     - navigation.instant
-    #- navigation.sections
     - navigation.top
     - search.highlight
     - search.suggest
@@ -84,4 +80,4 @@ repo_url: https://github.com/TimGrt/automation-demo
 repo_name: TimGrt/automation-demo
 # Navigation definition
 nav:
-  - qep-aap-usage.md
+  - index.md

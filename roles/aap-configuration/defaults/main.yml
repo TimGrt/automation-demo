@@ -1,3 +1,0 @@
----
-
-ccloud_cr_access_token: "{{ vault_ccloud_cr_access_token }}"

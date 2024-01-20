@@ -1,0 +1,46 @@
+---
+
+- name: Create folder for build context
+  ansible.builtin.file:
+    path: "{{ build_context_folder }}"
+    mode: "0755"
+    state: directory
+
+- name: Prepare build context
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ build_context_folder }}/{{ item.dest }}"
+    mode: "0644"
+  loop:
+    - src: welcome.html
+      dest: index-{{ attendee_normalized }}.html
+    - src: Containerfile
+      dest: Containerfile-{{ attendee_normalized }}
+  loop_control:
+    label: "{{ item.dest }}"
+
+- name: Build Container Image
+  containers.podman.podman_image:
+    name: welcome-{{ attendee_normalized }}-image
+    path: "{{ build_context_folder }}"
+    state: build
+    build:
+      file: "{{ build_context_folder }}/Containerfile-{{ attendee_normalized }}"
+
+- name: Gather facts on listening ports
+  community.general.listen_ports_facts:
+
+- name: Get available port from list of ports
+  ansible.builtin.set_fact:
+    available_port: "{{ item | string }}"
+  loop: "{{ port_range_list }}"
+  when:
+    - item not in (ansible_facts.tcp_listen | map(attribute='port') | list)
+    - available_port | default('') | length == 0
+
+- name: Start container on port {{ available_port }}
+  containers.podman.podman_container:
+    name: welcome-{{ attendee_normalized }}
+    image: localhost/welcome-{{ attendee_normalized }}-image
+    ports: "{{ available_port }}:80/tcp"
+  notify: Container_info
