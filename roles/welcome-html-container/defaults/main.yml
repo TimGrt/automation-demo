@@ -5,6 +5,6 @@ attendee: Teilnehmer
 # no special characters are used and everything is lowercase
 attendee_normalized: "{{ attendee | community.general.crc32 }}"
 
-build_context_folder: "{{ playbook_dir }}/context"
+build_context_folder: "~/.context"
 
 port_range_list: "{{ range(8080, 8100) | list }}"

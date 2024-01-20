@@ -1,2 +1,0 @@
-include 1hDD-Demo.yml
-recursive-include roles/1hDD-Demo *.yml
