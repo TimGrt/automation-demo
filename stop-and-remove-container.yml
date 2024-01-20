@@ -1,0 +1,16 @@
+---
+
+- name: Container cleanup
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Gather facts for all containers
+      containers.podman.podman_container_info:
+      register: container_info
+    - name: Stop and remove all container
+      containers.podman.podman_container:
+        name: "{{ item['Name'] }}"
+        state: absent
+      loop: "{{ container_info.containers }}"
+      loop_control:
+        label: "{{ item['Name'] }}"
