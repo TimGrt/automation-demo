@@ -7,9 +7,17 @@ Das Web UI ist erreichbar unter:
 
 <figure markdown>
   <div class="grid cards" markdown>
-  [:simple-ansible: &nbsp; http://192.168.178.121:30080](http://192.168.178.121:30080/ "Klick mich!"){ .md-button target=_blank }
+  [:simple-ansible: &nbsp; https://massive-major-pug.ngrok-free.app](https://massive-major-pug.ngrok-free.app/ "Klick mich!"){ .md-button target=_blank }
   </div>
 </figure>
+
+!!! info
+    Ihr werdet mit einem *Warnheinweis* begrüßt, keine Panik, die AWX-Instanz steht in meinem Homelab und ich gebe sie über diesen Link kurzzeitig frei.  
+    Klickt auf den Button **Visit Site** und ihr werdet auf die AWX-Login-Seite weitergeleitet!  
+    <figure markdown>
+    ![ngrok Banner](assets/images/ngrok-visit-site.png){ width="700" }
+    <figcaption></figcaption>
+    </figure>
 
 Ihr könnt euch mit eurem **Vornamen** und dem folgenden Standart-Passwort einloggen:
 
