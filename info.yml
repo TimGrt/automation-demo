@@ -1,0 +1,8 @@
+---
+
+- name: Demo playbook
+  hosts: all
+  tasks:
+    - name: Output all Ansible facts
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts }}"
