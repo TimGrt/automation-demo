@@ -1,0 +1,8 @@
+---
+- name: Add a new application profile
+  cisco.aci.aci_ap:
+    tenant: demo-tenant-tg
+    ap: workshop
+    description: Workshop AP
+    monitoring_policy: default
+    state: present

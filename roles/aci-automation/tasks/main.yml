@@ -1,0 +1,7 @@
+---
+
+- ansible.builtin.import_tasks: tenant.yml # noqa name[missing]
+
+- ansible.builtin.import_tasks: ap.yml # noqa name[missing]
+
+- ansible.builtin.import_tasks: epgs.yml # noqa name[missing]
