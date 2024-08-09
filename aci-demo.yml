@@ -7,11 +7,11 @@
     - name: Ensure ACI login data is provided via environment variables
       ansible.builtin.assert:
         that:
-          - lookup('ansible.builtin.env', 'ACI_HOST')is community.general.ansible_type('str')
-          - lookup('ansible.builtin.env', 'ACI_USERNAME')is community.general.ansible_type('str')
-          - lookup('ansible.builtin.env', 'ACI_PASSWORD')is community.general.ansible_type('str')
-          - lookup('ansible.builtin.env', 'ACI_VALIDATE_CERTS')is community.general.ansible_type('str')
+          - lookup('ansible.builtin.env', 'ACI_HOST') | length > 0
+          - lookup('ansible.builtin.env', 'ACI_USERNAME') | length > 0
+          - lookup('ansible.builtin.env', 'ACI_PASSWORD') | length > 0
+          - lookup('ansible.builtin.env', 'ACI_VALIDATE_CERTS') | length > 0
         quiet: true
-        fail_msg: "Provide login credentials, for example: 'export ACI_HOST=aci-api-endpoint'"
+        fail_msg: "Login credentials not found! Provide environment variables, for example: 'export ACI_HOST=aci-api-endpoint'"
   roles:
     - aci-automation
