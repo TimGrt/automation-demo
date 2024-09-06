@@ -1,0 +1,10 @@
+---
+
+- name: Survey demo
+  hosts: all
+  tasks:
+    - name: Output stuff from survey input
+      ansible.builtin.debug:
+        msg:
+          - "{{ first_line }}"
+          - "{{ second_line }}"
