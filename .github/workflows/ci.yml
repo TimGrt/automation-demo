@@ -1,5 +1,5 @@
 ---
-name: Linting
+name: Integration
 on:
   workflow_dispatch:
   pull_request:
