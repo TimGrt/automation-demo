@@ -4,4 +4,6 @@ context/
 
 .cache/
 
+.ansible/
+
 site/
