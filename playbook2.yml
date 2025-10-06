@@ -1,0 +1,11 @@
+---
+
+- name: First playbook
+  hosts: managed_nodes
+  gather_facts: false
+  tasks:
+    - name: Output
+      ansible.builtin.debug:
+        msg: "{{ packages_installed }}"
+
+    

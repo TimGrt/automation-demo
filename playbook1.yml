@@ -1,0 +1,14 @@
+---
+
+- name: First playbook
+  hosts: managed_nodes
+  gather_facts: false
+  tasks:
+    - name: Get packages
+      ansible.builtin.package_facts:
+
+    - name: Aggregating packages_installed stat per host
+      ansible.builtin.set_stats:
+        data:
+          packages_installed: "{{ ansible_facts.packages | length }}"
+        per_host: true
