@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.14-alpine
 COPY index-{{ attendee_normalized }}.html /site/index.html
 EXPOSE 80
 CMD ["python", "-m", "http.server", "80", "-d", "site/"]
